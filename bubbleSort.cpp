@@ -1,4 +1,4 @@
-#include<iostream>
+ #include<iostream>
 using namespace std;
 int t=0;
 void bubble(int arr[],int s)
