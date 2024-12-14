@@ -12,7 +12,7 @@ int part (int arr[],int low,int high)
         {
             i++;
         }
-        while(arr[i]>pv)
+        while(arr[j]>pv)
         {
             j--;
         }
