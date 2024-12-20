@@ -8,7 +8,7 @@ int part (int arr[],int low,int high)
     int j=high;
     do
     {
-        while(arr[i]<pv)
+        while(arr[i]<=pv)
         {
             i++;
         }
