@@ -1,72 +1,69 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-void merges(int A[],int low,int mid,int high)
+void merge(int A[], int low, int mid, int high)
 {
-    int i,j,k,B[high+1];
-    i=low;
-    j=mid+1;
-    k=low;
-    while(i<=mid && j<high)
+    int i, j, k, B[high + 1];
+    i = low;
+    j = mid + 1;
+    k = low;
+    while (i <= mid && j <= high)
     {
-        if(A[i]<A[j])
+        if (A[i] < A[j])
         {
-            B[k]=A[i];
+            B[k] = A[i];
             i++;
         }
         else
         {
-            B[k]=A[j];
+            B[k] = A[j];
             j++;
         }
         k++;
     }
-
-    while(i<=mid)
+    while (i <= mid)
     {
-        B[k]=A[i];
+        B[k] = A[i];
         k++;
         i++;
     }
-    while(j<=high)
+    while (j <= high)
     {
-        B[k]=A[j];
+        B[k] = A[j];
         k++;
         j++;
     }
-    for(i=low;i<=high;i++)
+    for (i = low; i <= high; i++)
     {
-        A[i]=B[i];
+        A[i] = B[i];
     }
 }
-void divide(int A[],int low,int high)
+void divide(int A[], int low, int high)
 {
     int mid;
-    if(low<high)
+    if (low < high)
     {
-        mid=(low+high)/2;
-        divide(A,mid+1,high);
-        divide(A,low,mid);
-        merges(A,low,mid,high);
+        mid = (low + high) / 2;
+        divide(A, low, mid);
+        divide(A, mid + 1, high);
+        merge(A, low, mid, high);
     }
-    }
-    void printarr(int A[],int n)
+}
+void printarr(int A[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
     {
-        int i;
-        for(i=0;i<n;i++)
-        {
-            cout<<A[i]<<"\t";
-        }
-        cout<<"\n";
+        cout << A[i] << "\t ";
     }
-    int main()
-    {
-        int A[]={3,5,2,13,12,10,6};
-        int n=7;
-        printarr(A,n);
-        divide(A,0,n-1);
-        cout<<"--------After Merge Sort--------\n";
-        printarr(A,n);
-    }
+    cout << "\n";
+}
 
-
-
+int main()
+{
+    int A[] = {3, 5, 2, 13, 12, 10, 6};
+    int n = 7;
+    printarr(A, n);
+    divide(A, 0, n - 1);
+    cout << "Sorted array is \n";
+    printarr(A, n);
+}
