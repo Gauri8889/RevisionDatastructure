@@ -57,7 +57,6 @@ void printarr(int A[], int n)
     }
     cout << "\n";
 }
-
 int main()
 {
     int A[] = {3, 5, 2, 13, 12, 10, 6};
