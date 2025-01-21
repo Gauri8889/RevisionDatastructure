@@ -52,9 +52,7 @@ int main()
         cout<<st.tops()<<"\n";
         st.pop();
     }
-}
-
-st.push(20);
+    st.push(20);
 st.push(100);
 cout<<st.tops()<<"\n";
 st.pop();
@@ -66,4 +64,7 @@ while(st.top!=-1)
 }
 delete []st.arr;//free pointer
 }
+
+
+
 
