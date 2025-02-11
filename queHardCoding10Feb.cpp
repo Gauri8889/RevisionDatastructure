@@ -1,18 +1,18 @@
-#include<iostream.
+#include<iostream>
 using namespace std;
 class node
 {
     public:int data;
-    node *n;
+    node *nxt;
     node(int v)
     {
-        data=n;
-        n=NULL;
+        data=v;
+        nxt=NULL;
     }
 };
 class myque
 {
-    node *frnt,*rear;
+    public:node *frnt,*rear;
     public:myque()
     {
         frnt=NULL;
@@ -25,12 +25,12 @@ class myque
         {
             frnt=n;
             rear=n;
-        }
+
     }
     rear->nxt=n;
     rear=n;
 };
-int qpeek()
+int qpeek()//peek fuction top ke elememt ko dikhata hai,
 {
     if(frnt==NULL)
     {
@@ -38,11 +38,31 @@ int qpeek()
     }
     return frnt->data;
 }
+bool isempty()
+{
+    if(frnt==NULL)
+    {
+        return true;
+    }
+    return false;
+}
+};
 int main()
 {
+    node *n=NULL;
     myque q;
-    q.qpush(10);
-    q.qpush();
-    q.qpush();
-    q.qpush();
+    q.qpush(n,10);
+    q.qpush(n,30);
+    q.qpush(n,4);
+    q.qpush(n,5);
+    cout<<q.qpeek()<<"\n";
+    if(q.isempty())
+    {
+        cout<<" Q is empty";
+    }
+    else
+    {
+        cout<<"Q is not empty";
+    }
 }
+
